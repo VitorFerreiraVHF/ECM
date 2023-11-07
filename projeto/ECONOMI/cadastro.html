@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.min.css">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Cadastro</title>
+</head>
+<body>
+  <form>
+    <center>
+      <table style="width:100%; border:none">
+        <tr>
+          <label>CADASTRANDO LANÇAMENTO</label>
+          <BR>
+          <BR>
+          <td><input type="date" nome="dataini"></td>
+          <td><input type="date" nome="datafim"></td>
+        </tr>
+      </table>
+    </center>
+    <input id="money2"type="text" maxlength="10" placeholder="R$: Insira um valor..."nome="valor">
+    <center>
+    <input type="submit" nome="acao" value="Cadastrar">
+    </center>
+  </form>
+</section>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+  $('#money2').mask("#.##0,00", {reverse: true});
+</script>
+</body>
+</html>

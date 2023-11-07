@@ -1,0 +1,173 @@
+body {
+
+  background:             linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);  
+  background-image:       url(../img/wpp.svg);
+  background-repeat:      no-repeat;
+  background-size:        cover;
+  background-position:    center;
+  font-family: "Lato",sans-serif;
+
+}
+
+/*menu lateral*/
+
+.menuOculto {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background:             rgb(255,222,23);
+  background:             linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);  
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+}
+.menuOculto a{
+ padding: 8px 8px 8px 32px;
+ text-decoration: none;
+ font-size: 25px;
+ color: #888;
+ display: block;
+ transition: 0.5s;
+
+}
+.menuOculto a:hover{
+ color: #fff; 
+}
+
+.btnFechar{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size:  30px !important ;
+  margin-left: 50px;
+} 
+
+#principal{
+  padding: 16px;
+  transition: margin-left 0.5s;
+}
+
+@media screen and(max-height:450px){
+ .menuOculto{padding-top: 15px;}
+ .menuOculto a{font-size: 18px;} 
+}
+
+.button{
+width: 80%;
+margin: 0;
+display: block;
+height: 40px;
+line-height: 40px;
+text-align: center;
+text-decoration: none;
+background-color: #726205;
+border-radius: 20px;
+}
+/*.button{
+  position: fixed;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 20%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #726205;
+  margin-bottom: 1%;
+}
+*/
+footer#mobile-btn{
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width: 100%
+}
+.btnHome{
+  scale: 100%;
+
+}
+
+@media screen and(max-height:450px){
+  .button{ margin-bottom: 2%;}
+   
+}
+
+.mobile-btn-div{
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Login*/
+
+*{margin: 0;padding: 0;box-sizing: border-box;}
+    form{
+      background-color: white;
+      max-width: 500px;
+      width: 70%; 
+      padding: 20px;
+      position:absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 10px;
+    }
+    form h3{
+      text-align: center;
+      font-family: 'Lucida Sans','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    form input[type=text],
+    form input[type=password]{
+      width: 100%;
+      height: 45px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding-left: 10px;
+      margin: 10px 0;
+    }
+    form input[type=submit]{
+      width: 70%;
+      height: 40px;
+      cursor: pointer;
+      color: white;
+      background-color: rgb(255,222,23);
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+    }
+    form input[type=submit]:hover{
+      transition: 0.3s;
+      width: 71%;
+      cursor: pointer;
+      color: white;
+      background-color: rgb(196, 169, 18);
+      border: white;
+    }
+
+    form input[type=date]{
+      /*
+      width: 40%;
+      height: 45px;
+      */
+      height: 45px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding-left: 10px;
+      margin: 10px 0;
+    }
+    form input[type=value]{
+      width: 100%;
+      height: 45px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding-left: 10px;
+      margin: 10px 0;
+    }
