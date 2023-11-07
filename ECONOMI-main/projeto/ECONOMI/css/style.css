@@ -1,0 +1,156 @@
+body {
+
+    background:             linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);  
+    background-image:       url(../img/wpp.svg);
+    background-repeat:      no-repeat;
+    background-size:        cover;
+    background-position:    center;
+    font-family: "Lato",sans-serif;
+
+}
+
+/*menu lateral*/
+
+.menuOculto {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background:             rgb(255,222,23);
+    background:             linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);  
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+}
+.menuOculto a{
+   padding: 8px 8px 8px 32px;
+   text-decoration: none;
+   font-size: 25px;
+   color: #888;
+   display: block;
+   transition: 0.5s;
+
+}
+.menuOculto a:hover{
+   color: #fff; 
+}
+
+ .btnFechar{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size:  30px !important ;
+    margin-left: 50px;
+} 
+
+#principal{
+    height: 100vh;
+    position: relative;
+    transition: margin-left 0.5s;
+}
+
+.Trasos{
+    margin: 10px;
+}
+
+@media screen and(max-height:450px){
+   .menuOculto{padding-top: 15px;}
+   .menuOculto a{font-size: 18px;} 
+}
+
+.button{
+    width: 80%;
+    margin: 0;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #726205;
+    border-radius: 20px;
+
+
+}
+footer#mobile-btn{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%
+}
+
+.btnHome{
+    scale: 150%;
+
+}
+
+.btnHomelateral{
+    scale: 90%;
+
+}
+
+@media screen and(max-height:450px){
+    .button{ margin-bottom: 0%;}
+     
+ }
+
+.mobile-btn-div{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ .login-container {
+    margin: 100px auto;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-form .pure-group input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    
+}
+
+.login-form .pure-group button {
+    
+    width: 80%;
+    padding: 10px;
+    background-color: #0078e7;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 10%;
+}
+
+.login-form .pure-group button:hover {
+    background-color: #0056b3;
+}
+
+.login-form .pure-group a {
+    text-decoration: none;
+    color: #0078e7;
+}
