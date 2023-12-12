@@ -1,4 +1,5 @@
-﻿using ECM.Dominio.Interfaces.Repositorios;
+﻿using System.Net;
+using ECM.Dominio.Interfaces.Repositorios;
 using ECM.Dominio.Interfaces.Servicos;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +20,13 @@ namespace ECM.WebApi.Controllers
         {
             return Ok();
         }
+
         [HttpGet]
         [Route("/login")]
-        public IActionResult login( string email, string senha)
+        public ActionResult login( string email, string senha)
         {
-            return Redirect("");
+            //return View("");
+            return RedirectPermanent("file:///D:/ECONOMII/ECM/desenvolvimento///home.html");
         }
     }
 }

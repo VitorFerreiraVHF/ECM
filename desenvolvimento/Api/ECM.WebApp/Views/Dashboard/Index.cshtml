@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "ECCONOMI";
+}
+<section id="principal">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            width: 200px;
+            background-color: #f1f1f1;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        canvas {
+            max-width: 100%;
+        }
+
+        /* Adicionando consulta de mídia para dispositivos menores */
+        media (max-width: 768px) {
+            nav {
+                width: 80%;
+                position: static;
+            }
+
+            main {
+                margin-left: 0;
+            }
+        }
+    </style>
+
+<header>
+    <h1>Meu Dashboard</h1>
+</header>
+
+<nav>
+    <a href="#section1">Seção 1</a>
+    <a href="#section2">Seção 2</a>
+    <a href="#section3">Seção 3</a>
+    <br>
+    <br>
+    <a asp-controller="Home" asp-action="Index" class="Voltar">Voltar</a>
+    <!-- Adicione mais links conforme necessário -->
+</nav>
+
+<main>
+    <section id="section1">
+        <h2>Gráfico de Barras</h2>
+        <canvas id="barChart"></canvas>
+    </section>
+
+    <section id="section2">
+        <h2>Gráfico de Pizza</h2>
+        <canvas id="pieChart"></canvas>
+    </section>
+
+    <section id="section3">
+        <h2>Outras Informações</h2>
+        <p>Conteúdo da Seção 3...</p>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Configuração do Gráfico de Barras
+    var ctxBar = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(ctxBar, {
+        type: 'bar',
+        data: {
+            labels: ['Item 1', 'Item 2', 'Item 3'],
+            datasets: [{
+                label: 'Valores',
+                data: [50, 75, 30],
+                backgroundColor: [
+                    'rgba(255, 99, 132, )',
+                    'rgba(75, 192, 192, )',
+                    'rgba(255, 205, 86, )',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 205, 86, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Configuração do Gráfico de Pizza
+    var ctxPie = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: ['Item 1', 'Item 2', 'Item 3'],
+            datasets: [{
+                data: [15, 60, 25],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(255, 205, 86, 0.7)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 205, 86, 1)',
+                ],
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
+
+
+
+</section>

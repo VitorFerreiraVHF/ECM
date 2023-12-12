@@ -171,3 +171,14 @@ footer#mobile-btn{
       padding-left: 10px;
       margin: 10px 0;
     }
+
+    .Voltar {
+      width: 70%;
+      height: 20px;
+      cursor: pointer;
+      color: white;
+      background-color: rgb(255,222,23);
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+    }

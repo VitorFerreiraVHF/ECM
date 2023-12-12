@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\backup\default.css" />
+    <None Include="wwwroot\css\backup\reset.min.css" />
+    <None Include="wwwroot\css\backup\style.css" />
+    <None Include="wwwroot\css\default.css" />
+    <None Include="wwwroot\css\reset.min.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\img\Busto.svg" />
+    <None Include="wwwroot\img\e37d682d-a9f1-4ee9-b211-d2ea3114887f.jfif" />
+    <None Include="wwwroot\img\eedc9f60-3341-46b5-9487-265b5243563b.jfif" />
+    <None Include="wwwroot\img\Home.svg" />
+    <None Include="wwwroot\img\logo.svg" />
+    <None Include="wwwroot\img\wpp.svg" />
+    <None Include="wwwroot\js\scripts_navigation_bar.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+  </ItemGroup>
+
+</Project>

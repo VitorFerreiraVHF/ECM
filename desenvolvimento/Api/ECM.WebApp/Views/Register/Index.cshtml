@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "ECCONOMI";
+}
+<section id="principal">
+
+    <form>
+        <center><label>CADASTRANDO LANÇAMENTO</label></center>
+
+        <!-- <input type="text" id="btn" nome="acao" value="Voltar" onClick="javascript: window.open(document.getElementById('home.html').value);" /> -->
+        <br><br>
+        <a asp-controller="Home" asp-action="Index" class="Voltar">Voltar</a>
+        <br><br>
+        <a>Data Inicial: </a><input type="date" nome="dataini">
+        <br>
+        <a>Data Final: </a><input type="date" nome="datafim">
+        <input id="money2" type="text" maxlength="10" placeholder="R$: Insira um valor..." nome="valor">
+        <center>
+            <input type="submit" nome="acao" value="Cadastrar">
+        </center>
+    </form>
+</section>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+<script>
+    $('#money2').mask("#.##0,00", { reverse: true });
+</script>
+
+
