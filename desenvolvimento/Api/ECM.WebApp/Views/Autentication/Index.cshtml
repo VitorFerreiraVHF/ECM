@@ -4,17 +4,17 @@
 <section id="principal">
 
         <div>
-            <form>
+            <form method="get" asp-action="Login" asp-controller="Autentication">
+            <a asp-controller="UserEdit" asp-action="Index" class="Voltar">Se Cadastrar</a>
                 <h3>LOGIN</h3>
                 <br>
-            <input class="input" type="email" nome="email" placeholder="Seu e-mail...">
-            <input class="input" type="password" nome="senha" placeholder="Sua senha...">
+                <input class="input" type="email" id="mail" name="mail" placeholder="Seu e-mail...">
+                <input class="input" type="password" id="senha" name="senha" placeholder="Sua senha...">
                 <center>
-
-                <input asp-controller="Home" asp-action="Index" type="submit" id="btn" nome="acao" value="Entrar" />
+                <input type="submit" id="btn" name="acao" value="Entrar" />
                     <br>
                     <br>
-                    <a href="#" style="margin-top: 1em;">Esqueceu a Senha?</a>
+                <a asp-controller="AlterPassword" asp-action="Index" style="margin-top: 1em;">Esqueceu a Senha?</a>
                 </center>
             </form>
 

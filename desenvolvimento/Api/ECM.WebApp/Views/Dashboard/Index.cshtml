@@ -2,154 +2,131 @@
     ViewData["Title"] = "ECCONOMI";
 }
 <section id="principal">
+    <div class="Trasos">
+        <span class="btn-trass" onclick="geral()">&#9776;</span>
+    </div>
+    <aside id="menuOculto" class="menuOculto">
+        <br>
+        <strong><a asp-controller="Autentication" asp-action="Index" style="margin-top: 0;">Sair</a></strong>
+        <br>
+        <br>
+        <br>
+        @*             <a href="#">teste</a>
+        <a href="#">teste</a>
+        <a href="#">teste</a> *@
 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js">
+    </aside>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
+      header {
             background-color: #333;
             color: white;
             padding: 10px;
             text-align: center;
         }
 
-        nav {
-            width: 200px;
-            background-color: #f1f1f1;
-            padding: 15px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            height: 100%;
-            overflow-y: auto;
-        }
 
-        nav a {
-            display: block;
-            padding: 10px;
-            color: #333;
-            text-decoration: none;
-            border-bottom: 1px solid #ccc;
-        }
 
-        nav a:hover {
-            background-color: #ddd;
-        }
+            nav a {
+                display: block;
+                padding: 10px;
+                color: #333;
+                text-decoration: none;
+                border-bottom: 1px solid #ccc;
+            }
+
+                nav a:hover {
+                    background-color: #ddd;
+                }
 
         main {
-            padding: 20px;
+            padding: 0;
         }
 
         canvas {
-            max-width: 100%;
+            max-height: 100%;
+            max-width: 80%;
+
         }
 
         /* Adicionando consulta de mídia para dispositivos menores */
-        media (max-width: 768px) {
-            nav {
-                width: 80%;
-                position: static;
-            }
+        @@media (max-width: 768px) {
 
             main {
                 margin-left: 0;
             }
+
         }
     </style>
 
-<header>
-    <h1>Meu Dashboard</h1>
-</header>
+    <header>
+        <h1>Meu Dashboard</h1>
+    </header>
 
-<nav>
-    <a href="#section1">Seção 1</a>
-    <a href="#section2">Seção 2</a>
-    <a href="#section3">Seção 3</a>
-    <br>
-    <br>
-    <a asp-controller="Home" asp-action="Index" class="Voltar">Voltar</a>
-    <!-- Adicione mais links conforme necessário -->
-</nav>
 
-<main>
-    <section id="section1">
-        <h2>Gráfico de Barras</h2>
-        <canvas id="barChart"></canvas>
-    </section>
+    <main>
+        <section id="section1">
+            <h2>Gráfico de Barras</h2>
+            <canvas id="barChart"></canvas>
+        </section>
 
-    <section id="section2">
-        <h2>Gráfico de Pizza</h2>
-        <canvas id="pieChart"></canvas>
-    </section>
+    </main>
 
-    <section id="section3">
-        <h2>Outras Informações</h2>
-        <p>Conteúdo da Seção 3...</p>
-    </section>
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Configuração do Gráfico de Barras
-    var ctxBar = document.getElementById('barChart').getContext('2d');
-    var barChart = new Chart(ctxBar, {
-        type: 'bar',
-        data: {
-            labels: ['Item 1', 'Item 2', 'Item 3'],
-            datasets: [{
-                label: 'Valores',
-                data: [50, 75, 30],
-                backgroundColor: [
-                    'rgba(255, 99, 132, )',
-                    'rgba(75, 192, 192, )',
-                    'rgba(255, 205, 86, )',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 205, 86, 1)',
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Configuração do Gráfico de Barras
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['Item 1', 'Item 2', 'Item 3'],
+                datasets: [{
+                    label: 'Valores',
+                    data: [50, 75, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, )',
+                        'rgba(75, 192, 192, )',
+                        'rgba(255, 205, 86, )',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 205, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
 
-    // Configuração do Gráfico de Pizza
-    var ctxPie = document.getElementById('pieChart').getContext('2d');
-    var pieChart = new Chart(ctxPie, {
-        type: 'pie',
-        data: {
-            labels: ['Item 1', 'Item 2', 'Item 3'],
-            datasets: [{
-                data: [15, 60, 25],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.7)',
-                    'rgba(75, 192, 192, 0.7)',
-                    'rgba(255, 205, 86, 0.7)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(255, 205, 86, 1)',
-                ],
-                borderWidth: 1
-            }]
-        }
-    });
-</script>
+    </script>
 
 
+
+
+    <footer id="mobile-btn">
+        <center>
+            <div class="mobile-btn-div">
+                <aside class="button">
+                    <a asp-controller="Dashboard" asp-action="Index" style="margin-right: 10%;">
+                        <img style="width: 38px; height: 38px;" class="btnHomelateral"
+                             src="https://th.bing.com/th/id/R.84704c03b283a7d24041f27f37b6572e?rik=NT%2bl5mCHckhO7g&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-black-coincoinsmetaldollarblack-14215264847000sfms.png&ehk=GEicSaHziIgIZJJ%2b6O%2feOTqllWc47br7%2fEcUCQsCF60%3d&risl=&pid=ImgRaw&r=0" />
+                    </a>
+                    <a asp-controller="Home" asp-action="Index" style="margin-left: 0%; margin-right: 0%; filter:invert(1)">
+                        <img class="btnHome" src="@Url.Content("~/img/Home.svg")" />
+                    </a>
+                    <a asp-controller="Register" asp-action="Index" style="margin-left: 10%">
+                        <img style="width: 38px; height: 38px;" class="btnHomelateral"
+                             src="https://wowjohn.com/wp-content/uploads/2022/05/cadastro-icon-png-Transparent-Images-200x200.png" />
+                    </a>
+                </aside>
+            </div>
+        </center>
+    </footer>
 
 </section>

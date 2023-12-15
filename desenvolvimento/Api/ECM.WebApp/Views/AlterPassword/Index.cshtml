@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "ECCONOMI";
+}
+<section id="principal">
+
+        <div>
+            <form id="myForm" onsubmit="return validateForm()">
+            <a asp-controller="UserEdit" asp-action="Index" class="Voltar">Se Cadastrar</a>
+                <h3>LOGIN</h3>
+                <br>
+                    <input class="input" type="email" id="mail" name="mail" placeholder="Seu e-mail...">
+                        <label for="password">Senha:</label>
+                            <input class="input" type="password" id="password senha" name="senha" required placeholder="Nova senha...">
+                <br>
+                        <label for="confirmPassword">Confirme a Senha:</label>
+                            <input class="input" type="password" id="confirmPassword senha" name="confirmPassword" required placeholder="Confirmar senha...">
+                <br>
+                    <p id="errorMessage" class="error-message"></p>
+                <center>
+                    <input asp-controller="Autentication" asp-action="Index" type="submit" id="btn" name="acao" value="Salvar" />
+                </center>
+            </form>
+
+        </div>
+</section>
+
+</section>

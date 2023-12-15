@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "ECCONOMI";
+}
+<section id="principal">
+    
+        <form style="display: flex; flex-direction: column;">
+        
+            <label for="nome" style="margin-bottom: 8px;">Nome:</label>
+            <input type="text" id="nome" name="nome" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
+
+            <label for="email" style="margin-bottom: 8px;">Email:</label>
+            <input type="email" id="mail" name="email" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
+
+            <label for="senha" style="margin-bottom: 8px;">Senha:</label>
+            <input type="password" id="senha" name="senha" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
+
+            <label for="familia" style="margin-bottom: 8px;">Família:</label>
+            <input type="text" id="familia" name="familia" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
+            <center>
+            <input type="submit" name="acao" value="Cadastrar">
+            <br>
+            <br>
+            <a asp-controller="Autentication" asp-action="Index" class="Voltar">Voltar</a>
+            </center>
+            
+        </form>
+</section>
+
