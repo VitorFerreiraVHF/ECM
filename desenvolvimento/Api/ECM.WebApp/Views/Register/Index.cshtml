@@ -19,7 +19,7 @@
     <center>
         <img style="width: 20%; height: 20%; position: absolute, fixed, center; z-index: 1; top: 0;" src="@Url.Content("~/img/logo.svg")" alt="" />
     </center>
-    <form>
+    <form asp-action="addLancamento" asp-controller="Register" method="post">
         <center><label>CADASTRANDO LANÇAMENTO</label></center>
 
         <!-- <input type="text" id="btn" name="acao" value="Voltar" onClick="javascript: window.open(document.getElementById('home.html').value);" /> -->
@@ -27,21 +27,15 @@
         <a asp-controller="Home" asp-action="Index" class="Voltar">Voltar</a>
         <br>
         <br>
-        <br>
-
-        <a asp-controller="RegisterEdit" asp-action="Index" class="Voltar">Editar lançamento</a>
-        <br><br>
         <input type="text" placeholder="Insira o nome do seu Objetivo" name="NomeLancamento">
-        <br>
-        <br>
         <br>
         <a>Data Inicial: </a><input type="date" name="DataInicial">
         <br>
         <a>Data Final :  </a><input type="date" name="DataFinal">
         <br>
-        <input id="money2" type="text" maxlength="10" placeholder="R$: Insira um valor inicial..." name="ValorTotal">
+        <input class="money2" type="text" maxlength="10" placeholder="R$: Insira um valor inicial..." name="valorTotal">
         <br>
-        <input id="money2" type="text" maxlength="10" placeholder="R$: Insira um valor do seu objetivo..." name="ValorFinal">
+        <input class="money2" type="text" maxlength="10" placeholder="R$: Insira um valor do seu objetivo..." name="valorFinal">
         <center>
             <input type="submit" name="acao" value="Cadastrar">
         </center>
@@ -50,7 +44,7 @@
         <center>
             <div class="mobile-btn-div">
                 <aside class="button">
-                    <a asp-controller="Dashboard" asp-action="Index" style="margin-right: 10%;">
+                    <a asp-controller="TableRegister" asp-action="Index" style="margin-right: 10%;">
                         <img style="width: 38px; height: 38px;" class="btnHomelateral"
                              src="https://th.bing.com/th/id/R.84704c03b283a7d24041f27f37b6572e?rik=NT%2bl5mCHckhO7g&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-black-coincoinsmetaldollarblack-14215264847000sfms.png&ehk=GEicSaHziIgIZJJ%2b6O%2feOTqllWc47br7%2fEcUCQsCF60%3d&risl=&pid=ImgRaw&r=0" />
                     </a>

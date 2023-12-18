@@ -1,9 +1,39 @@
-﻿@{
+﻿@model IEnumerable<Familia>;
+@{
     ViewData["Title"] = "ECCONOMI";
 }
+<script>
+    function register(){
+        let name = document.querySelector('input[name="nome"]').value;
+        let mail = document.querySelector('input[name="email"]').value;
+        let pswd = document.querySelector('input[name="senha"]').value;
+        let family = document.querySelector('select[name="familia"]').value;
+
+        let data = new FormData();
+            data.append("name", name);
+            data.append("mail", mail);
+            data.append("pass", pswd);
+            data.append("familyId", family);
+
+        const req = new Request("../Autentication/Register", {
+            method: 'post',
+            body: data
+        });
+        fetch(req)
+            .then(response => response.json())
+            .then(d => {
+                alert(d.message);
+                if (d.status == 1)
+                    window.location.href = "../"
+            });
+                
+        return false;
+    }
+</script>
+
 <section id="principal">
     
-        <form style="display: flex; flex-direction: column;">
+        <form onsubmit="return register()" style="display: flex; flex-direction: column;">
         
             <label for="nome" style="margin-bottom: 8px;">Nome:</label>
             <input type="text" id="nome" name="nome" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
@@ -15,12 +45,19 @@
             <input type="password" id="senha" name="senha" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
 
             <label for="familia" style="margin-bottom: 8px;">Família:</label>
-            <input type="text" id="familia" name="familia" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
+            @* <input type="text" id="familia" name="familia" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required> *@
+
+            <select type="text" id="familia" name="familia" style="padding: 10px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px;" required>
+                @foreach(var family in Model.ToList()){
+                    <option value="@family.FamiliaID">@family.NomeFamilia</option>
+                }
+            </select>
+
             <center>
             <input type="submit" name="acao" value="Cadastrar">
             <br>
             <br>
-            <a asp-controller="Autentication" asp-action="Index" class="Voltar">Voltar</a>
+            @* <a asp-controller="Autentication" asp-action="Index" class="Voltar">Voltar</a> *@
             </center>
             
         </form>

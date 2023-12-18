@@ -1,10 +1,36 @@
 ﻿@{
     ViewData["Title"] = "ECCONOMI";
 }
+
+<script>
+    function login() {
+        let mail = document.querySelector('input[name="mail"]').value;
+        let pswd = document.querySelector('input[name="senha"]').value;
+
+        let data = new FormData();
+        data.append("mail", mail);
+        data.append("senha", pswd);
+
+        const req = new Request("../Autentication/Login", {
+            method: 'post',
+            body: data
+        });
+        fetch(req)
+            .then(response => response.json())
+            .then(d => {
+                if (d.status == 0)
+                    alert(d.message); 
+                else
+                    window.location.href = d.message
+            });
+
+        return false;
+    }
+</script>
 <section id="principal">
 
         <div>
-            <form method="get" asp-action="Login" asp-controller="Autentication">
+            <form onsubmit="return login()">
             <a asp-controller="UserEdit" asp-action="Index" class="Voltar">Se Cadastrar</a>
                 <h3>LOGIN</h3>
                 <br>

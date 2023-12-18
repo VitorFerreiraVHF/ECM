@@ -1,6 +1,36 @@
 ﻿@{
     ViewData["Title"] = "ECCONOMI";
 }
+
+<script>
+    function validateForm() {
+        var mail = document.getElementById("mail").value;
+        var senha = document.getElementById("senha").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var errorMessage = document.getElementById("errorMessage");
+
+        if (senha !== confirmPassword) {
+           errorMessage.innerHTML = "As senhas não coincidem.";
+        } else {
+           let data = new FormData();
+           data.append("mail", mail);
+            data.append("pass", senha);
+
+           const req = new Request("../Autentication/Alter", {
+               method: 'post',
+               body: data
+           });
+           fetch(req)
+               .then(response => response.json())
+               .then(d => {
+                   alert(d.message);
+                   window.location.href = "../";
+               });
+        }
+        return false; // Impede o envio do formulário
+    }
+</script>
+
 <section id="principal">
 
         <div>
@@ -10,14 +40,14 @@
                 <br>
                     <input class="input" type="email" id="mail" name="mail" placeholder="Seu e-mail...">
                         <label for="password">Senha:</label>
-                            <input class="input" type="password" id="password senha" name="senha" required placeholder="Nova senha...">
+                            <input class="input" type="password" id="senha" name="senha" required placeholder="Nova senha...">
                 <br>
                         <label for="confirmPassword">Confirme a Senha:</label>
-                            <input class="input" type="password" id="confirmPassword senha" name="confirmPassword" required placeholder="Confirmar senha...">
+                            <input class="input" type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirmar senha...">
                 <br>
                     <p id="errorMessage" class="error-message"></p>
                 <center>
-                    <input asp-controller="Autentication" asp-action="Index" type="submit" id="btn" name="acao" value="Salvar" />
+                    <input type="submit" id="btn" name="acao" value="Salvar" />
                 </center>
             </form>
 

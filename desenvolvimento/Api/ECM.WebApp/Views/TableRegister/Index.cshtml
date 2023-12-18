@@ -1,0 +1,108 @@
+﻿
+@model IEnumerable<Lancamentos>;
+@{
+    ViewData["Title"] = "ECCONOMI";
+}
+    <section id="principal">
+        <div class="Trasos">
+        <span class="btn-trass" onclick="geral()">&#9776;</span>
+        </div>
+        <aside id="menuOculto" class="menuOculto">
+            <br>
+        <strong><a asp-controller="Autentication" asp-action="Index" style="margin-top: 0;">Sair</a></strong>
+            <br>
+            <br>
+            <br>
+@*             <a href="#">teste</a>
+            <a href="#">teste</a>
+            <a href="#">teste</a> *@
+
+        </aside>
+        <center>
+        <img style="width: 20%; height: 20%; position: absolute, fixed, center; z-index: 1; top: 0;" src="@Url.Content("~/img/logo.svg")" alt="" />
+        </center>
+
+    <table class="table table-dark table-bordered">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">LancamentoID    </th>
+                <th scope="col">NomeLancamento  </th>
+                <th scope="col">ValorTotal      </th>
+                <th scope="col">ValorFinal      </th>
+                <th scope="col">DataInicial     </th>
+                <th scope="col">DataFinal       </th>
+                <th scope="col">FamiliaID       </th>
+                <th scope="col">Actions         </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach(var obj in Model.ToList())
+            {                
+                <tr class=" text-center">
+                    <th scope="row">@obj.LancamentoID
+                    <td>@obj.NomeLancamento
+                    <td>@obj.ValorTotal
+                    <td>@obj.ValorFinal
+                    <td>@obj.DataFinal
+                    <td>@obj.DataInicial
+                    <td>@obj.FamiliaID</td>
+                    <td>
+                        <button class="edit-button" onclick="editLanc(@obj.LancamentoID)">Editar</button>
+                        <button class="delete-button" onclick="deleteLanc(@obj.LancamentoID)">Excluir</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+         <footer id="mobile-btn">
+             <center>
+                 <div class="mobile-btn-div">
+                     <aside class="button">
+                    <a asp-controller="TableRegister" asp-action="Index" style="margin-right: 10%;">
+                             <img style="width: 38px; height: 38px;" class="btnHomelateral"
+                              src="https://th.bing.com/th/id/R.84704c03b283a7d24041f27f37b6572e?rik=NT%2bl5mCHckhO7g&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-black-coincoinsmetaldollarblack-14215264847000sfms.png&ehk=GEicSaHziIgIZJJ%2b6O%2feOTqllWc47br7%2fEcUCQsCF60%3d&risl=&pid=ImgRaw&r=0" />
+                         </a>
+                     <a asp-controller="Home" asp-action="Index" style="margin-left: 0%; margin-right: 0%; filter:invert(1)">
+                             <img class="btnHome" src="@Url.Content("~/img/Home.svg")" />
+                         </a>
+                     <a  asp-controller="Register" asp-action="Index" style="margin-left: 10%">
+                             <img style="width: 38px; height: 38px;" class="btnHomelateral"
+                              src="https://wowjohn.com/wp-content/uploads/2022/05/cadastro-icon-png-Transparent-Images-200x200.png" />
+                         </a>
+                     </aside>
+                 </div>
+             </center>
+         </footer>
+
+    </section>
+
+
+    <script>
+        function deleteLanc(id)
+        {
+            const data = new FormData();
+                  data.append("Id", id);
+            if (confirm("Tem certeza que dejesa excluir esse lancamento?")) {
+                const req = new Request("../RegisterEdit/Delete", {
+                    method: 'delete',
+                    body: data
+                });
+                fetch(req)
+                    .then(response => response.json())
+                    .then(d => {
+                        alert(d.message);
+                        if (d.status == 1)
+                            window.location.href = "../TableRegister"
+                    });
+            }
+        }
+
+
+        function editLanc(id) {
+            window.location.href = "../RegisterEdit/" + id;
+        }
+    </script>
+    

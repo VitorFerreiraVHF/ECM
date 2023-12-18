@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\js\Password_Validation.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\backup\default.css" />
     <None Include="wwwroot\css\backup\reset.min.css" />
     <None Include="wwwroot\css\backup\style.css" />
@@ -23,7 +19,6 @@
     <None Include="wwwroot\img\Home.svg" />
     <None Include="wwwroot\img\logo.svg" />
     <None Include="wwwroot\img\wpp.svg" />
-    <None Include="wwwroot\js\password_validation.js" />
     <None Include="wwwroot\js\scripts_navigation_bar.js" />
   </ItemGroup>
 

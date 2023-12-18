@@ -1,29 +1,27 @@
 body {
+    background: linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);
+    background-image: url(../img/wpp.svg);
+    background-position: center;
+    font-family: "Lato",sans-serif;
 
-  background:             linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);  
-  background-image:       url(../img/wpp.svg);
-  background-repeat:      no-repeat;
-  background-size:        cover;
-  background-position:    center;
-  font-family: "Lato",sans-serif;
-
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /*menu lateral*/
 
 .menuOculto {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background:             rgb(255,222,23);
-  background:             linear-gradient(0deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 100%);  
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgb(255,222,23);
+    background: linear-gradient(40deg, rgba(255,222,23,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(255,222,23,1) 100%);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 .menuOculto a{
  padding: 8px 8px 8px 32px;
@@ -242,13 +240,15 @@ img {
 
 
 article h1 {
-    font-size:30px;
+    font-size:1.5em;
 }article h2 {
-    font-size:5%;
+    font-size:2em;
 }article p {
-    font-size:20vw;
+    font-size:1em;
 }
-
+.ancora {
+    font-size: 1em;
+}
  /*
 section {
     background-color: aqua;
@@ -311,4 +311,35 @@ section {
     color: white;
     font-size: 30px;
     cursor: pointer;
+}
+
+
+.edit-button, .delete-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button {
+    background-color: #3498db;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+    .edit-button:hover, .delete-button:hover {
+        background-color: #2980b9;
+    }
+
+
+
+table {
+    border-radius:20%;
 }

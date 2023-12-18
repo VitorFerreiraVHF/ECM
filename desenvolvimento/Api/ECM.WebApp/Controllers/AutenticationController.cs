@@ -21,43 +21,47 @@ namespace ECM.WebApp.Controllers
             var result = _entityUsuario.ToList();
             return View();
         }
+
+        [HttpPost]
         public IActionResult Login(string mail, string senha)
         {
             var query = _entityUsuario.Where(i => i.Mail == mail && i.Senha == senha).ToList();
 
             if (query.Any())
             {
-                return RedirectToAction("Index","Home");
+                return Json(new { status = 1, message = Url.Action("Index", "Home") });
             }
             else
             {
-                return RedirectToAction("Index", "Autentication");
+                return Json(new { status = 0, message = "Email ou senha invalido" });
             }
+        }
 
-            //Codigo pra registrar um novo usuarios
+        [HttpPost]
+        public IActionResult Register(string name, string mail, string pass, int familyId)
+        {
+            if (!_entityUsuario.Where(x => x.Mail == mail).Any())
+            {
+                _entityUsuario.Add(new Usuario()
+                {
+                    UsuarioID = _entityUsuario.Count() + 1,
+                    NomeUser = name,
+                    Mail = mail,
+                    Senha = pass,
+                    FamiliaID = familyId
+                });
+                _contexto.SaveChanges();
+                return Json(new { status = 1, message = "Usuario cadastrado." });
+            }
+            return Json(new { status = 0, message = "Email ja utilizado." });
+        }
 
-            //var obj = new Usuario()
-            //{
-            //    NomeUser = "thiago",
-            //    Mail = "thiago@gmail.com",
-            //    Senha = "123456789",
-            //    FamiliaID = 2,
-            //    UsuarioID = 0
-            //};
-
-            //if(mail existe && senha existe)
-
-            //Atualizar
-            //var ent = _entityUsuario.Where(c => c.UsuarioID == usuarioId).Add(obj);
-
-            //else
-                //Salvar
-                //obj.UsuarioID = _entityUsuario.Count() + 1;
-                //var ent = _entityUsuario.Add(obj);
-            //
-
-            //Confirma Auteração
-            //_contexto.SaveChanges();
+        [HttpPost]
+        public IActionResult Alter(string mail, string pass)
+        {
+            _entityUsuario.Where(x => x.Mail == mail).First().Senha = pass;
+            _contexto.SaveChanges();
+            return Json(new { status = 1, message = "Senha alterada." });
         }
     }
 }
